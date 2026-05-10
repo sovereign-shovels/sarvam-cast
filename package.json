@@ -1,0 +1,16 @@
+{
+  "name": "sarvam-cast",
+  "version": "0.1.0",
+  "description": "Subscribe to RSS, get a daily Indic podcast. Bulbul TTS + LLM summary.",
+  "type": "module",
+  "bin": {
+    "sarvam-cast": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.4",
+    "@types/node": "^20"
+  }
+}
