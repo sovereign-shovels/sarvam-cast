@@ -1,8 +1,8 @@
 # sarvam-cast
 
-> Subscribe to RSS, get a daily Hindi/Tamil/Telugu podcast. Bulbul TTS + LLM summary. Fully sovereign.
+> Subscribe to RSS, get a daily Hindi/Tamil/Telugu podcast. Bulbul TTS + LLM summary.
 
-**Status:** v0.1 — planning. Not yet released.
+**Status:** v0.1 — in development.
 
 **Sovereignty:** sovereign-by-construction. BYO endpoint, BYO key, BYO model.
 A local-only configuration is documented and tested.
@@ -14,22 +14,42 @@ Best-effort community shovel — no SLA, no roadmap commitments.
 
 ## What this is
 
-Subscribe to RSS, get a daily Hindi/Tamil/Telugu podcast. Bulbul TTS + LLM summary. Fully sovereign.
+Subscribe to RSS, get a daily Hindi/Tamil/Telugu podcast. Bulbul TTS + LLM summary.
 
 ## What this isn't
 
-Not a podcast hosting platform. Not a content discovery service. Not a news aggregator beyond user-supplied RSS.
+See [PRD-v1.md](./PRD-v1.md) for the full anti-scope definition.
 
 ## Install
 
-> Coming with v0.1 release.
+### From package manager (when v0.1 ships)
+
+```bash
+npm install -g sarvam-cast
+```
+
+### Build from source
+
+```bash
+git clone https://github.com/sovereign-shovels/sarvam-cast.git
+cd sarvam-cast
+```
+# Install dependencies
+npm install
+
+# Build
+npm run build
+
+# Or link for local dev
+npm link
+```
 
 ## Configure
 
 You bring the model. By default `sarvam-cast` tries to use a local provider:
 
 - For LLM endpoints: Ollama at `http://localhost:11434`
-- For voice endpoints: configurable, see [docs/configure.md]
+- For voice endpoints: configurable, see docs
 
 To use any other provider (Claude, GPT, Hermes, OpenRouter, Sarvam, etc.):
 
@@ -46,7 +66,7 @@ LM Studio, and vLLM all work via their OpenAI-compatible endpoints.
 
 ## Why this exists
 
-India's commute culture is enormous. Vernacular news consumption is voice-first and growing. Existing podcast platforms don't auto-generate Indic content from English RSS. sarvam-cast does: subscribe to feeds, configure language and voice, get a daily Hindi/Tamil/Telugu podcast in your inbox or RSS reader.
+See [PRD-v1.md](./PRD-v1.md) for the problem statement and rationale.
 
 ## What's next
 
