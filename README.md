@@ -8,6 +8,40 @@
 
 ---
 
+## Architecture
+
+```
+┌─────────────────┐     ┌──────────────┐     ┌─────────────────┐
+│   RSS feeds     │────▶│   sarvam-    │────▶│   Local LLM     │
+│  (HN, blogs)    │     │   cast       │     │   (Ollama)      │
+└─────────────────┘     │  (fetch +    │     └─────────────────┘
+                        │   summarize) │              │
+                        └──────────────┘              ▼
+                               │               ┌──────────────┐
+                               ▼               │  podcast-    │
+                        ┌──────────────┐       │  script.txt  │
+                        │  podcast-    │       │  (Indic)     │
+                        │  script.txt  │       └──────────────┘
+                        └──────────────┘              │
+                                                      ▼
+                                               ┌──────────────┐
+                                               │  bulbul-     │
+                                               │  studio TTS  │
+                                               └──────────────┘
+```
+
+## What this is
+
+Turn any RSS feed into a podcast script in Indian languages. Fetch headlines, summarize with a local LLM, translate to Hindi/Tamil/Telugu/etc., format for TTS. Then pipe through bulbul-studio for audio.
+
+## What this isn't
+
+- Not a TTS engine (see [bulbul-studio](https://github.com/sovereign-shovels/bulbul-studio))
+- Not a podcast hosting platform
+- Not real-time (batch generation)
+
+---
+
 ## Install
 
 ```bash
@@ -28,6 +62,18 @@ node dist/index.js generate
 
 # The script is saved to podcast-script.txt
 # Use bulbul-studio to convert to audio
+```
+
+**Demo output:**
+```
+$ node dist/index.js init
+Created config at ~/.config/sarvam-cast/config.json
+
+$ node dist/index.js generate
+Fetching RSS feeds...
+Fetched: https://news.ycombinator.com/rss
+Script saved to podcast-script.txt
+Use bulbul-studio or sarvam TTS to convert to audio.
 ```
 
 ---
